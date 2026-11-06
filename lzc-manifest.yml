@@ -1,0 +1,44 @@
+application:
+  subdomain: varin
+  multi_instance: false
+  # Varin has its own UI password login (VARIN_UI_PASSWORD, enforced by the
+  # upstream compose contract when the port is exposed), so it authenticates
+  # itself and must be reachable directly.
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://varin:3000/
+services:
+  varin:
+    # Built from source (upstream v0.9.38): the ghcr images referenced by the
+    # upstream compose file are not publicly pullable at this version.
+    image: embed:varin
+    environment:
+      - HOME=/home/varin
+      - VARIN_DATA_DIR=/home/varin/.config/varin
+      - VARIN_WORKSPACE_ROOT=/home/varin/workspaces
+      - VARIN_HOST=0.0.0.0
+      - VARIN_UI_PASSWORD={{ .U.ui_password }}
+      - TZ=Asia/Shanghai
+    binds:
+      - /lzcapp/var/data:/home/varin/.config/varin
+      - /lzcapp/var/workspaces:/home/varin/workspaces
+    stop_grace_period: 15s
+usage: |
+  Varin 是一个开源 Agent 工作台：内置工具调用、上下文管理、持久执行、
+  权限与恢复机制，并带一个长期运行的超级 Agent，可以从浏览器或手机访问。
+  它支持接入多家模型服务商（需要你自己的 API Key）。
+
+  首次使用：
+    - 打开应用入口，输入部署时生成的 UI 密码（可在部署参数里查看/修改）。
+    - 首次登录后在设置里接入你的模型 API Key 即可开始使用。
+
+  说明：
+    - 数据与工作区目录已持久化（/home/varin/.config/varin 与
+      /home/varin/workspaces），升级或重建容器后配置保留。
+    - 本包基于上游 v0.9.38 源码构建。上游 ghcr 镜像在该版本尚未公开发布，
+      因此采用源码内嵌构建，不依赖任何镜像源。
+    - 本应用使用自身的密码登录（public_path 直接对外开放），
+      请妥善保管部署时生成的密码。
+    - 未做实机验证。

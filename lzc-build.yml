@@ -1,0 +1,10 @@
+manifest: ./lzc-manifest.yml
+pkgout: ./dist
+icon: ./icon.png
+contentdir: ./content
+images:
+  varin:
+    dockerfile: ./Dockerfile
+    context: ./upstream
+    builder: local
+buildscript: ./buildscript.sh

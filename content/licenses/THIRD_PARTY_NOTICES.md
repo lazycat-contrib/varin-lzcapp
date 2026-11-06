@@ -1,0 +1,225 @@
+# Third-party notices
+
+Varin as a combined work is licensed under `AGPL-3.0-only`. The notices below apply to incorporated
+upstream portions and do not make Varin as a whole available under the MIT License. Dependencies,
+fonts, icons, and other separately distributed components remain under the licenses shipped with
+their respective packages or source files.
+
+## Native workspace filesystem bindings
+
+The optional `workspace-mount` source feature uses `winfsp` 0.13.2+winfsp-2.1 and
+`winfsp-sys` 0.12.1+winfsp-2.1 (GPL-3.0), from
+https://github.com/SnowflakePowered/winfsp-rs.
+
+WinFsp - Windows File System Proxy, Copyright (C) Bill Zissimopoulos.
+https://github.com/winfsp/winfsp. Windows installers optionally install the unmodified
+official WinFsp 2026 Beta5 MSI (2.2.26286), pinned by SHA-256 in
+`packages/electron/resources/workspace-component.json`. This pre-release includes
+the upstream security and cached-write/concurrent-rename deadlock fixes; its name is
+shown in the component selection page. Compatible installed components are reused;
+Varin uninstall does not remove this shared system component. The upstream GPLv3
+and FLOSS exception accompany the installer in `legal/winfsp/License.txt`.
+macFUSE remains a separately installed optional prerequisite and is not bundled.
+
+The FUSE adapter uses `fuser` 0.18.0 (MIT), copyright 2020-present Christopher Berner
+and 2013-2019 Andreas Neuhaus. Its library source and full MIT license are preserved
+in `kernel/vendor/fuser`; `VARIN_PATCHES.md` records the macOS capability-handshake
+patch against the exact upstream archive.
+
+## imbl persistent collections
+
+The native private-file generation engine uses unmodified `imbl` 7.0.2, licensed
+under the Mozilla Public License 2.0 (the package declares `MPL-2.0+`).
+Copyright 2017--2021 Bodil Stokke. Copyright 2021 Joe Neeman.
+Source and the accompanying licence are available at
+https://github.com/jneem/imbl and https://docs.rs/crate/imbl/7.0.2/source/LICENCE.md.
+
+## Claude Agent SDK
+
+The external Claude Code connection uses `@anthropic-ai/claude-agent-sdk` 0.3.310,
+published by Anthropic. Its package declares `SEE LICENSE IN README.md`; the package's
+README and accompanying notices remain with that dependency. The bridge uses the user's
+selected Claude Code executable and its own configuration. Anthropic's SDK documentation
+and terms are available at https://github.com/anthropics/claude-agent-sdk-typescript.
+
+## OpenChamber-derived product code
+
+Portions of Varin are derived from OpenChamber material carrying these notices:
+
+Copyright (c) 2025 Bohdan Triapitsyn
+
+Copyright (c) 2024 OpenChamber contributors
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Open Computer Use platform drivers
+
+The Windows native helper in `kernel/crates/varin-computer-windows` and the Linux
+runtime files in `packages/computer-driver` incorporate
+portions of [open-codex-computer-use](https://github.com/iFurySt/open-codex-computer-use),
+baseline `51f3a59`, modified for Varin's resident driver protocol and input handling.
+
+MIT License
+
+Copyright (c) 2026 Leo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## noVNC desktop viewer
+
+The browser desktop viewer bundles noVNC 1.7.0 core JavaScript, Copyright
+(C) 2022 the noVNC authors, under MPL-2.0. Its upstream notice is distributed
+at `packages/web/public/licenses/novnc-LICENSE.txt`; the corresponding source is
+available from the pinned `@novnc/novnc` dependency and
+[noVNC upstream](https://github.com/novnc/noVNC/tree/v1.7.0).
+
+Desktop artifact downloads use `@noble/hashes` 2.4.0 to verify SHA-256
+before saving. Its MIT license is distributed at
+`packages/web/public/licenses/noble-hashes-LICENSE.txt`.
+
+Interactive content module imports use `es-module-lexer` 2.3.2, Copyright
+(C) 2018-2022 Guy Bedford, under the MIT License. Its license is distributed at
+`packages/web/public/licenses/es-module-lexer-LICENSE.txt`.
+
+## TypeScript language service
+
+Varin's first-party TypeScript/JavaScript language extension distributes
+`typescript-language-server` 5.3.0 and TypeScript 5.9.3 as immutable runtime assets. Their complete
+MIT/Apache-2.0 licenses and TypeScript third-party notice are stored alongside those assets in every
+distribution artifact.
+
+## Monaco Editor
+
+Varin's desktop/Web file-editor runtime incorporates Monaco Editor.
+
+Copyright (c) Microsoft Corporation.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Office format libraries and embedded browser automation
+
+Office file creation uses `docx` (Copyright 2016 Dolan), `exceljs` (Copyright
+2014–2019 Guyon Roche) and `pptxgenjs` (Copyright 2015–2022 Brent Ely), under
+the MIT License. OOXML structure editing uses `@xmldom/xmldom`, Copyright
+2012–2017 @jindw and 2019–present Christopher J. Brody and contributors,
+also under the MIT License. Their unchanged license texts are distributed
+in `packages/web/public/licenses/{docx,exceljs,pptxgenjs,xmldom}-LICENSE.txt`.
+
+The embedded browser uses `puppeteer-core`, Copyright 2017 Google Inc.,
+under Apache-2.0. `packages/electron/browser-transport.ts` adapts Puppeteer's
+ExtensionTransport (Copyright 2024 Google Inc.) to Electron's debugger
+transport and restricts its connection to the owned page. The full license
+is distributed in `packages/web/public/licenses/puppeteer-LICENSE.txt`.
+Puppeteer connects to Electron's existing Chromium; no additional browser
+distribution is bundled by this integration.
+
+## Native ripgrep
+
+Varin distributes native ripgrep through the locked `@vscode/ripgrep` 1.18.0 target packages from
+[Microsoft's ripgrep-prebuilt](https://github.com/microsoft/ripgrep-prebuilt), under MIT. The original
+package license is staged alongside the executable as `ripgrep-LICENSE`.
+
+The bundled ripgrep 15.0.0 is Copyright (c) 2015 Andrew Gallant, distributed under its
+[MIT option](https://github.com/BurntSushi/ripgrep/blob/15.0.0/LICENSE-MIT). PCRE2 10.45 includes
+copyrights of the University of Cambridge, Philip Hazel, Zoltan Herczeg and other contributors,
+under [BSD-3-Clause WITH PCRE2-exception](https://github.com/PCRE2Project/pcre2/blob/pcre2-10.45/LICENCE.md).
+The unchanged texts are included in `packages/web/public/licenses/ripgrep-MIT-LICENSE.txt` and
+`pcre2-LICENSE.txt`, and copied beside the desktop executable payload in `resources/tools`.
+
+## models.dev metadata and model brand icons
+
+The bundled `deepseek.svg` in `packages/ui/src/assets/provider-logos` comes from
+[models.dev](https://github.com/anomalyco/models.dev/blob/dev/logos/deepseek.svg),
+Copyright (c) 2025 models.dev, under the MIT License. The bundled `claude.svg` and
+`qwen.svg` come from [LobeHub icons](https://github.com/lobehub/lobe-icons),
+Copyright (c) 2023 LobeHub, under the MIT License. The unchanged license texts are
+distributed at `packages/web/public/licenses/models-dev-LICENSE.txt` and
+`packages/web/public/licenses/lobe-icons-LICENSE.txt`. Brand marks identify model
+families and do not imply endorsement. Model-family matching is original Varin code.
+
+`packages/web/application-host/lib/models/directory-snapshot.ts` also bundles model metadata from
+[models.dev](https://github.com/anomalyco/models.dev), under the same MIT License. Its public model
+list snapshots come from the documented OpenCode, Command Code and Cline model-directory APIs.
+The runtime normalizes this data with Varin's own installed protocol and channel implementations.
+
+## Pi model metadata and account protocols
+
+The curated model presets and device authorization integrations in
+`packages/web/application-host/lib/models`, and Copilot request-header handling in
+`kernel/crates/varin-runtime/src/providers`, adapt portions of
+[Pi](https://github.com/earendil-works/pi), revision
+`698a2d23b86a5045dd54554354a5e0cb7e466795`.
+
+Copyright (c) 2025 Mario Zechner
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

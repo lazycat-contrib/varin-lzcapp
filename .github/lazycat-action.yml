@@ -1,0 +1,26 @@
+version: 1
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+update:
+  strategy: publish
+  allow_downgrade: false
+  # The service is built from source (embed:) by lzc-build.yml, and an embedded
+  # target cannot be an image version source, so versions come from git.
+  version_source:
+    type: git
+build:
+  toolchains:
+    - kind: docker
+  run_buildscript: true
+stores:
+  official:
+    enabled: true
+  private:
+    enabled: true
+    name: Varin
+    summary: 开源 Agent 工作台，浏览器与手机可用
+    skip_if_version_exists: true

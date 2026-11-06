@@ -1,0 +1,18 @@
+package: community.lazycat.app.varin
+name: Varin
+description: "An open-source agent harness with tools, durable execution, permissions and a long-running super-agent Bot, usable from browser or phone."
+version: 0.9.38
+min_os_version: "1.5.0"
+homepage: https://github.com/Youzini-afk/Varin
+author: Youzini-afk and contributors
+license: AGPL-3.0
+permissions:
+  required:
+    - net.internet
+locales:
+  zh:
+    name: Varin
+    description: "开源 Agent 工作台：内置工具、持久执行、权限与恢复机制，带一个长期运行的超级 Agent，可从浏览器或手机使用。"
+  en:
+    name: Varin
+    description: "An open-source agent harness with tools, durable execution, permissions and a long-running super-agent Bot, usable from browser or phone."

@@ -1,0 +1,13 @@
+params:
+  - id: ui_password
+    type: secret
+    name: UI password
+    description: "Password for the Varin web UI. Required: leaving it empty is not allowed by upstream when the port is exposed."
+    default_value: "$random(len=20)"
+    optional: false
+
+locales:
+  zh:
+    ui_password:
+      name: 网页界面密码
+      description: Varin 网页界面的登录密码。上游要求暴露端口时必须设置，默认随机生成。
