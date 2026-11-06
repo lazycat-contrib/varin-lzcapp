@@ -29,4 +29,9 @@ test -f upstream/scripts/docker-entrypoint.sh
 test -f upstream/scripts/build-cloud-runtime.mjs
 test -f upstream/scripts/fix-deprecation.js
 
+# The merged single-file Dockerfile lives at the package root in git, but the
+# action requires a file Dockerfile to sit inside its build context, so place
+# a copy next to the upstream sources it builds against.
+cp ./Dockerfile ./upstream/lzc-Dockerfile
+
 echo "varin: source ready at ./upstream"

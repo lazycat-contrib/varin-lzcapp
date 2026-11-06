@@ -4,7 +4,7 @@ icon: ./icon.png
 contentdir: ./content
 images:
   varin:
-    dockerfile: ./Dockerfile
+    dockerfile: ./upstream/lzc-Dockerfile
     context: ./upstream
     builder: local
 buildscript: ./buildscript.sh
